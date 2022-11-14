@@ -1,7 +1,9 @@
 # IBM-Project-12174-1659439576
 # Developing a Flight Delay Prediction Model using Machine Learning
 
-Mentor : Mr .HARISHANKAR A
+Faculty Mentor : Mr .HARISHANKAR A
+
+Industry Mentor : Mrs .Lalitha Gayathri
 
 Team ID : PNT2022TMID08017
 
