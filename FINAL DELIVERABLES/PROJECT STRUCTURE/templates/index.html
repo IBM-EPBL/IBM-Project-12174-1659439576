@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Predictor</title>
+</head>
+<style>
+html, body {
+      min-height: 100%;
+      }
+      body{ 
+      background-image: url("https://wallpaperaccess.com/full/752854.jpg");
+      height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      line-height: 55px;
+      font-size: 50px;
+      color: #fff;
+      z-index: 2;      
+      }
+      b{
+      margin-top:10px;
+      font-size: 30px;
+      color: #424242;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding-left: 350px;
+      padding-right: 350px;
+      padding-top: 30px;
+	padding-bottom:30px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      }
+      .banner {
+      position: relative;
+      height: 230px;
+      background-image: url("https://pics.imcdb.org/0is16/flight3.1513.jpg");   
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.2); 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      
+  
+  .form-group {
+  display: flex; }
+  .form-group p {
+    width: 50%; }
+    .form-group input {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 50%;
+      padding: 5px;
+      }
+      .form-group input:hover {
+      border-color: #424242;
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        Border-color:#424242;
+      }
+      .form-group select {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 52%;
+      padding: 5px;
+      }
+      .form-group select:hover {
+      border-color:#424242;
+      }
+      .form-group button {
+  width:  auto;
+  min-width:  100px;
+  border-radius:  24px; 
+  text-align:  center; 
+  padding:  15px 40px;
+  margin-top:  5px; 
+  background-color: #424242; 
+  color:  #fff; 
+  font-size:  14px;
+  margin-left:  auto; 
+  font-weight:  500; 
+  box-shadow:  0px 2px 6px -1px rgba(0,0,0,.13); 
+  border:  none;
+  transition:  all .3s ease; 
+  outline: 0;
+  }
+  .form-group button:hover {
+    transform:  translateY(-3px);
+    box-shadow:  0 2px 6px -1px rgba(#424242, .65);
+  }
+  .form-group button:active {
+    transform:  scale(.99);
+  }
+  </style>
+<body>
+<div class="testbox">
+<form action="/prediction" method="post">
+<div class="banner">
+<h1>Flight Delay Predictor</h1>
+</div>
+<div class="item">
+<h2>Flight Details</h2>
+</div>
+<div class="form-group">
+<p>Enter The Flight Number:</p>
+<input type="number" name ="name" required/></div>
+<div class="form-group">
+<p><label for = "month">Month:</label></p>
+<select name="month" required>
+<option value="none" selected disabled hidden></option>
+<option value ="1">Jan</option>
+<option value ="2">Feb</option>
+<option value ="3">Mar</option>
+<option value ="4">Apr</option>
+<option value ="5">May</option>
+<option value ="6">Jun</option>
+<option value ="7">Jul</option>
+<option value ="8">Aug</option>
+<option value ="9">Sep</option>
+<option value ="10">Oct</option>
+<option value ="11">Nov</option>
+<option value ="12">Dec</option>
+</select></div>
+<div class="form-group">
+<p>Day Of Month:</p>
+<input type="number" name ="dayofmonth" required/></div>
+<div class="form-group">
+<p><label for = "dayofweek">Day Of Week:</label></p>
+<select name="dayofweek" required>
+<option value="none" selected disabled hidden></option>
+<option value ="1">Sun</option>
+<option value ="2">Mon</option>
+<option value ="3">Tue</option>
+<option value ="4">Wed</option>
+<option value ="5">Thu</option>
+<option value ="6">Fri</option>
+<option value ="7">Sat</option>
+</select></div>
+<div class="form-group">
+<p><label for = "Origin">Origin:</label></p>
+<select name="origin" required>
+<option value="none" selected disabled hidden></option>
+<option value ="msp">msp</option>
+<option value ="dtw">dtw</option>
+<option value ="jfk">jfk</option>
+<option value ="sea">sea</option>
+<option value ="atl">atl</option>
+</select></div>
+<div class="form-group">
+<p>
+<label for = "destination">Destination:</label></p>
+<select name="destination" required>
+<option value="none" selected disabled hidden></option>
+<option value ="msp">msp</option>
+<option value ="dtw">dtw</option>
+<option value ="jfk">jfk</option>
+<option value ="sea">sea</option>
+<option value ="atl">atl</option>
+</select>
+</div>
+<div class="form-group">
+<p>Scheduled departure time:</p>
+<input type="number" name ="dept" required/></div>
+<div class="form-group">
+<p>Scheduled arrival time:</p>
+<input type="number" name ="arrtime" required/></div>
+<div class="form-group">
+<p>Actual dept time:</p>
+<input type="number" name ="actdept" required/></div>
+<div class="form-group">
+<b>{{showcase}}</b>
+<button type="submit" value="submit">Predict</button></div>
+</form>
+
+</body>
+</html>
